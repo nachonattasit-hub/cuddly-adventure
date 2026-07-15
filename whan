@@ -1,0 +1,6 @@
+try {
+  // โค้ดหลัก
+} catch (error) {
+  console.error("🚨 ศัตรูโผล่: ", error);
+  GmailApp.sendEmail("คุณ", "สคริปต์มีปัญหา", error.toString());
+}
