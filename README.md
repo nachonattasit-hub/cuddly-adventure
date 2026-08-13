@@ -1,14 +1,1 @@
-compose/snippets/src/main/java/com/example/compose/snippets
-Windows Registry Editor Version 5.00
-
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
-"NoDriveTypeAutoRun"=dword:000000ff
-"NoAutorun"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
-"NoDriveTypeAutoRun"=dword:000000ff
-"NoAutorun"=dword:00000001
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v NoDriveTypeAutoRun /t REG_DWORD /d 255 /f
-reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v NoDriveTypeAutoRun /t REG_DWORD /d 255 /f
-attrib -h -r -s /s /d X:\*.*   (แทน X: ด้วยตัวอักษรไดรฟ์ USB)
-del X:\autorun.inf
+From google import genai client = genai.Client() transcript_interaction = client.interactions.create( model="gemini-3.5-flash", input="""Generate a short transcript around 100 words that reads like it was clipped from a podcast by excited herpetologists. The hosts names are Dr. Anya and Liam.""" ) transcript = transcript_interaction.output_text tts_interaction = client.interactions.create( model="gemini-3.1-flash-tts-preview", input=transcript, response_format={"type": "audio"}, generation_config={ "speech_config": [ {"speaker": "Nachon", "voice": "th"}, {"speaker": "Whan", "voice": "Whan"} ] } )
